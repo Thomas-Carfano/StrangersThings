@@ -33,6 +33,7 @@ const defaultTheme = createTheme();
 // eslint-disable-next-line react/prop-types
 const SignIn = ({setTokenResponse}) => {
   const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
   const data = new FormData(event.currentTarget);
@@ -58,11 +59,11 @@ const SignIn = ({setTokenResponse}) => {
       const tokenResponse = data2.data.token
       console.log(tokenResponse)
       setTokenResponse(tokenResponse)
+
       } catch (error) {
         console.log(error)
-      }
-    }
-  createUser();
+      }}
+      createUser();
 
   return (
     <>
@@ -70,6 +71,7 @@ const SignIn = ({setTokenResponse}) => {
     </>
   )
   };
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -126,8 +128,6 @@ const SignIn = ({setTokenResponse}) => {
                 <Link href="./SignUp" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
-                <br/>
-                <Link href='/SignUp' to="./SignUp" title="Home" variant="body2">{"Don't have an account? Sign Up"}</Link>
               </Grid>
             </Grid>
           </Box>
