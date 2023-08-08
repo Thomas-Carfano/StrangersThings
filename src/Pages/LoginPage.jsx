@@ -123,7 +123,7 @@ const SignIn = ({setTokenResponse}) => {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/SignUpPage" variant="body2">
+                <Link href="https://mui.com/" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
