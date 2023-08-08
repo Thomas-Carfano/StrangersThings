@@ -3,7 +3,6 @@ import "../App.css"
 
 const getRoot = document.getElementById('root');
 
-
 const Search = ({Posts, setPosts}) => {
     console.log('Search Test')
     const [storeUserInput, setStoreUserInput] = useState([]);

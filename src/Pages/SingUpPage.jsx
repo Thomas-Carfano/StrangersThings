@@ -9,7 +9,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 
+
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
+
 
 const SignUp = ({setTokenResponse}) => {
   const navigate = useNavigate();
@@ -24,26 +26,27 @@ const SignUp = ({setTokenResponse}) => {
   })
 
   const createUser = async () => {
-      try{const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          user: {
-            username: data.get('email'),
-            password: data.get('password')
-          }
-
-        })
-      };
-      const response = await fetch(`${BASE_URL}/users/register`, requestOptions);
-      const data2 = await response.json();
-      const tokenResponse = data2.data.token
-      console.log(tokenResponse)
-      setTokenResponse(tokenResponse)
-      } catch (error) {
-        console.log(error)
+  try{const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+      user: {
+        username: data.get('email'),
+        password: data.get('password')
       }
-    }
+
+    })
+  };
+  const response = await fetch(`${BASE_URL}/users/register`, requestOptions);
+  const data2 = await response.json();
+  const tokenResponse = data2.data.token
+  console.log(tokenResponse)
+  setTokenResponse(tokenResponse)
+  } catch (error) {
+    console.log(error)
+  }
+    
+  }
   createUser();
 
   return (
@@ -52,6 +55,10 @@ const SignUp = ({setTokenResponse}) => {
     </>
   )
   };
+
+
+
+
 
   function Copyright(props) {
     return (
@@ -65,6 +72,10 @@ const SignUp = ({setTokenResponse}) => {
     );
   }
   const defaultTheme = createTheme();
+
+
+
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
