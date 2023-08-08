@@ -7,29 +7,75 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Toms Stranger Things Project © '}
-      <Link color="inherit" href="https://mui.com/">
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-const defaultTheme = createTheme();
 
-export default function SignUp() {
+const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
+
+
+// eslint-disable-next-line react/prop-types
+const SignUp = ({setTokenResponse}) => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  console.log({
+    email: data.get('email'),
+    password: data.get('password'),
+  })
+
+  const createUser = async () => {
+      try{const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          user: {
+            username: data.get('email'),
+            password: data.get('password')
+          }
+
+        })
+      };
+      const response = await fetch(`${BASE_URL}/users/register`, requestOptions);
+      const data2 = await response.json();
+      const tokenResponse = data2.data.token
+      console.log(tokenResponse)
+      setTokenResponse(tokenResponse)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  createUser();
+
+  return (
+    <>
+    {navigate('/Sell')}
+    </>
+  )
   };
+
+
+
+
+
+  function Copyright(props) {
+    return (
+      <Typography variant="body2" color="text.secondary" align="center" {...props}>
+        {'Toms Stranger Things Project © '}
+        <Link color="inherit" href="https://mui.com/">
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+  const defaultTheme = createTheme();
+
+
+
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -84,3 +130,5 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+
+export default SignUp

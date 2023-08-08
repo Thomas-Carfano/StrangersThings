@@ -4,18 +4,22 @@ import {Routes, Route} from 'react-router-dom'
 import SignIn from './Pages/LoginPage'
 import SignUp from './Pages/SingUpPage'
 import Posts from './Pages/PostsPage'
+import SellItem from './Pages/SellPage'
+import Home from './Pages/HomePage'
+import {useState} from 'react'
 
 const App = () => {
-
+  const [tokenResponse, setTokenResponse] = useState('')
 
   return (
     <>
       <NavBar/>
     <Routes>
-      <Route path="/SignIn" element={<SignIn/>}/>
-      <Route path="/SignUpPage" element={<SignUp/>}/>
-      <Route path='/Posts/' element={<Posts/>}/>
-      <Route index/>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path="/SignIn" element={<SignIn setTokenResponse={setTokenResponse}/>}/>
+      <Route path="/SignUpPage" element={<SignUp setTokenResponse={setTokenResponse}/>}/>
+      <Route path='/Posts' element={<Posts tokenResponse={tokenResponse}/>}/>
+      <Route path='/Sell' element={<SellItem tokenResponse={tokenResponse}/>}/>
     </Routes>
     </>
   )

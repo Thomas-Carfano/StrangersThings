@@ -10,6 +10,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+
+const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
 function Copyright(props) {
   return (
@@ -27,14 +30,45 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function SignIn() {
+// eslint-disable-next-line react/prop-types
+const SignIn = ({setTokenResponse}) => {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const data = new FormData(event.currentTarget);
+  console.log({
+    email: data.get('email'),
+    password: data.get('password'),
+  })
+
+  const createUser = async () => {
+      try{const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          user: {
+            username: data.get('email'),
+            password: data.get('password')
+          }
+
+        })
+      };
+      const response = await fetch(`${BASE_URL}/users/login`, requestOptions);
+      const data2 = await response.json();
+      const tokenResponse = data2.data.token
+      console.log(tokenResponse)
+      setTokenResponse(tokenResponse)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  createUser();
+
+  return (
+    <>
+    {navigate('/Sell')}
+    </>
+  )
   };
 
   return (
@@ -88,11 +122,6 @@ export default function SignIn() {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="./SignUpPage" variant="body2">
                   {"Don't have an account? Sign Up"}
@@ -106,3 +135,5 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
+
+export default SignIn

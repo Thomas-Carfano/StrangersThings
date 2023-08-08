@@ -7,9 +7,31 @@ import "../App.css"
 
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
-const Posts = () => {
-    const [Posts, setPosts] = useState([]);
+const Posts = ({tokenResponse}) => {
     console.log("Posts");
+    console.log(tokenResponse)
+    const [Posts, setPosts] = useState([]);
+
+    const deleteHandler = async (e) => {
+      console.log('delete')
+      console.log(e)
+      try {
+        const response = await fetch(`${BASE_URL}/posts/${e}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type' : 'application/json',
+              'Authorization' : `Bearer ${tokenResponse}`,
+            }
+          }
+        );
+        const result = await response.json();
+        console.log(result);
+        location.reload();
+      } catch (err) {
+        console.error(err);
+      }
+    }
 
     useEffect(() => {
         try{
@@ -51,6 +73,7 @@ const Posts = () => {
                     <br/>
                 </Item>
             </a>
+            <button onClick={() => deleteHandler(index._id)}>Delete</button>
           </Grid>
         ))}
       </Grid>
@@ -59,3 +82,24 @@ const Posts = () => {
     )
 };
 export default Posts
+
+// const deleteHandler = async (e) => {
+//   console.log('delete')
+//   console.log(e)
+//   try {
+//     const response = await fetch(`${BASE_URL}/posts/${e}`,
+//       {
+//         method: 'DELETE',
+//         headers: {
+//           'Content-Type' : 'application/json',
+//           'Authorization' : `Bearer ${tokenResponse}`,
+//         }
+//       }
+//     );
+//     const result = await response.json();
+//     console.log(result);
+//     location.reload();
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
