@@ -17,7 +17,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path="/SignIn" element={<SignIn setTokenResponse={setTokenResponse}/>}/>
-      <Route path="/SignUpPage" element={<SignUp setTokenResponse={setTokenResponse}/>}/>
+      <Route path="/SignUp" element={<SignUp setTokenResponse={setTokenResponse}/>}/>
       <Route path='/Posts' element={<Posts tokenResponse={tokenResponse}/>}/>
       <Route path='/Sell' element={<SellItem tokenResponse={tokenResponse}/>}/>
     </Routes>
