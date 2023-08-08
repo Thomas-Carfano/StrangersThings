@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import "../App.css"
+import Search from '../Components/Search'
 
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
@@ -59,6 +60,8 @@ const Posts = ({tokenResponse}) => {
 
     return (
         <>
+      <Search Posts={Posts} setPosts={setPosts}/>
+
         <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {Posts.map((index) => (
