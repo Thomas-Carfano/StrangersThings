@@ -128,9 +128,8 @@ const SignIn = ({setTokenResponse}) => {
                 </Link>
               </Grid>
             </Grid> */}
-          <Link to="../SignUp" title="Home">Don't have an account? Sign Up</Link>
-
           </Box>
+          <Link to="../SignUp" title="Home">Don't have an account? Sign Up</Link>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
