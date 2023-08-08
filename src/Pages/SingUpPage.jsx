@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
 
+// eslint-disable-next-line react/prop-types
 const SignUp = ({setTokenResponse}) => {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
@@ -67,10 +68,6 @@ const SignUp = ({setTokenResponse}) => {
     );
   }
   const defaultTheme = createTheme();
-
-
-
-
 
   return (
     <ThemeProvider theme={defaultTheme}>
