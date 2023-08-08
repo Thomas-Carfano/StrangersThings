@@ -15,7 +15,6 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-
 
 const SignUp = ({setTokenResponse}) => {
   const navigate = useNavigate();
-  <Link to="./SignUpPage" title="Home" id="login">Sign In</Link>
   const handleSubmit = (event) => {
 
   event.preventDefault();
@@ -55,10 +54,6 @@ const SignUp = ({setTokenResponse}) => {
     </>
   )
   };
-
-
-
-
 
   function Copyright(props) {
     return (
