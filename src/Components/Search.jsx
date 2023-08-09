@@ -1,8 +1,7 @@
 import {useState} from 'react'
 import "../App.css"
 
-const getRoot = document.getElementById('root');
-
+// eslint-disable-next-line react/prop-types
 const Search = ({Posts, setPosts}) => {
     console.log('Search Test')
     const [storeUserInput, setStoreUserInput] = useState([]);
@@ -21,11 +20,14 @@ const compare = () => {
         setStoreUserInput(storeUserInput)
     
     
+        // eslint-disable-next-line react/prop-types
         for(let j = 0; j < Posts.length; j++){
         
+            // eslint-disable-next-line react/prop-types
             let loopNames = Posts[j].title
             let post = Posts[j]
 
+            // eslint-disable-next-line react/prop-types
             for(let k = 0; k < loopNames.length; k++){
             
 

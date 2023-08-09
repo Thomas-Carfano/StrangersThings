@@ -121,6 +121,6 @@ const SignUp = ({setTokenResponse}) => {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
 export default SignUp

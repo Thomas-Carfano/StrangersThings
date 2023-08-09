@@ -8,6 +8,7 @@ import Search from '../Components/Search'
 
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
+// eslint-disable-next-line react/prop-types
 const Posts = ({tokenResponse}) => {
     console.log("Posts");
     console.log(tokenResponse)
