@@ -16,27 +16,27 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-
 // eslint-disable-next-line react/prop-types
 const SignUp = ({setTokenResponse}) => {
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
 
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  console.log({
-    email: data.get('email'),
-    password: data.get('password'),
-  })
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    })
 
   const createUser = async () => {
-  try{const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ 
-      user: {
-        username: data.get('email'),
-        password: data.get('password')
-      }
+    try{const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        user: {
+          username: data.get('email'),
+          password: data.get('password')
+        }
 
-    })
-  };
+      })
+    };
   const response = await fetch(`${BASE_URL}/users/register`, requestOptions);
   const data2 = await response.json();
   const tokenResponse = data2.data.token

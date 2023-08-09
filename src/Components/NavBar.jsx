@@ -8,7 +8,7 @@ const NavBar = () => {
     return(
         <>
         <div id="Title-Nav">
-            <h1>Strangers Things
+            <h1>Strangers Thing's
             <Link to="./SignIn" title="Home" id="login">Sign In</Link>
             </h1>
 

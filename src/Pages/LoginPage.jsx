@@ -4,8 +4,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from "react-router-dom";
-
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -18,6 +18,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Toms Stranger Things Project © '}
+      <Link color="inherit" href="https://mui.com/">
+      </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -121,15 +123,14 @@ const SignIn = ({setTokenResponse}) => {
             >
               Sign In
             </Button>
-            {/* <Grid container>
+            <Grid container>
               <Grid item>
-                <Link to="./SignUp" variant="body2">
+                <Link href="/SignUp" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
-            </Grid> */}
+            </Grid>
           </Box>
-          <Link to="../SignUp" title="Home">Don't have an account? Sign Up</Link>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
