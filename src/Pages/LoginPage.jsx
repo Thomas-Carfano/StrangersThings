@@ -127,7 +127,7 @@ const SignIn = ({setTokenResponse}) => {
             <Grid container>
               <Grid item>
                 <Link href="./SignUp" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Don't have an account? Sign UpTEST"}
                 </Link>
               </Grid>
             </Grid>
