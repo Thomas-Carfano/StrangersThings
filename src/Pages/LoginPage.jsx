@@ -136,7 +136,7 @@ const SignIn = ({setTokenResponse}) => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-    {/* <Link to="../SignUp">Not Registered? Register Now!</Link> */}
+    <Link to="../SignUp">Not Registered? Register Now!</Link>
     </>
   );
 }
