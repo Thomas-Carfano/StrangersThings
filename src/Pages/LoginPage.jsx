@@ -137,6 +137,8 @@ const SignIn = ({setTokenResponse}) => {
       </Container>
     </ThemeProvider>
     <Link to="../SignUp">Not Registered? Register Now!</Link>
+    <Link to="../SignUp" title="SignUp" className="test">Not Registered? Register Now2</Link>
+
     </>
   );
 }
