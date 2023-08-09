@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import SignUp from './SignUpPage'
 
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
@@ -128,7 +129,7 @@ const SignIn = ({setTokenResponse}) => {
               <Grid item>
               <h1>Test1A</h1>
 
-                <Link href="./SignUp" variant="body2">
+                <Link href="./SignUp" element={<SignUp/>} variant="body2">
                   {"Don't have an account? Sign UpTEST"}
                 </Link>
               </Grid>
