@@ -17,11 +17,15 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <>
+        <Link to="../SignUp" title="SignUp" >Don't have an account? Sign Up</Link>
+        <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Toms Stranger Things Project © '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
+</>
+   
   );
 }
 
@@ -74,7 +78,6 @@ const SignIn = ({setTokenResponse}) => {
 
   return (
     <>
-    <h1>Test1</h1>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -124,21 +127,11 @@ const SignIn = ({setTokenResponse}) => {
             >
               Sign In
             </Button>
-            {/* <Grid container>
-              <Grid item>
-              <h1>Test1A</h1>
-
-                <Link href="./SignUp" variant="body2">
-                  {"Don't have an account? Sign UpTEST"}
-                </Link>
-              </Grid>
-            </Grid> */}
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-    <Link to="../SignUp" title="SignUp" id="login">Sign Up</Link>
     </>
   );
 }

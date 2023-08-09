@@ -71,7 +71,6 @@ const SignUp = ({setTokenResponse}) => {
 
   return (
     <>
-    <h1>Test2</h1>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
