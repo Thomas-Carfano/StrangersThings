@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf`
 
 
+// eslint-disable-next-line react/prop-types
 const SellItem = ({tokenResponse}) => {
     console.log("sell")
     const token = tokenResponse
